@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/abc"
+
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:text="Park It Right "
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="40dp"
+        android:textSize="60dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/question1_id"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@android:color/background_dark"
+        />
+    <Button
+        android:id="@+id/first_activity_button"
+        android:layout_width="1200dp"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="Booking"
+        android:textStyle="bold"
+        android:textColor="@android:color/background_dark"
+        android:textSize="15sp" />
+
+    <!-- add button after click this we can goto another activity-->
+
+</RelativeLayout>
