@@ -1,0 +1,200 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText
+
+            android:id="@+id/name_field3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textCapWords"
+            android:layout_marginBottom="16dp"
+            />
+
+        <EditText
+
+            android:id="@+id/name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address of Space"
+            android:inputType="textPostalAddress"
+            android:layout_marginBottom="16dp"/>
+        <EditText
+
+            android:id="@+id/name_field1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subscription Provider Start:(DD/MM/YY)"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"/>
+        <EditText
+
+            android:id="@+id/name_field2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subscription Provider End:(DD/MM/YY)"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"/>
+        <EditText
+            android:id="@+id/name_field4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="No. of Hours/Day"
+            android:inputType="number"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/email_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email id."
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp"/>
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone No."
+            android:inputType="phone"
+            android:layout_marginBottom="16dp"/>
+
+
+        <View
+            android:layout_width="425dp"
+            android:layout_height="10dp"
+            android:background="#FFFFFF" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:text="Locality of the available space"
+            android:layout_marginBottom="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="?android:attr/dividerHorizontal"
+            android:showDividers="middle">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location A" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location B" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location C" />
+
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location D" />
+
+        </RadioGroup>
+        <View
+            android:layout_width="425dp"
+            android:layout_height="10dp"
+            android:background="#FFFFFF"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:text="Vehicle Type suited for your space"
+            android:layout_marginBottom="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/radio1">
+            <RadioButton
+                android:id="@+id/yes_radio_button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XUV/Sedan"
+                android:textAppearance="?android:textAppearanceMedium" />
+            <RadioButton
+                android:id="@+id/no_radio_button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hatchback "
+                android:textAppearance="?android:textAppearanceMedium" />
+            <RadioButton
+                android:id="@+id/no_radio_button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Two Wheeler"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+        </RadioGroup>
+        <View
+            android:layout_width="425dp"
+            android:layout_height="10dp"
+            android:background="#FFFFFF" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:text="Proceed"
+            android:textSize="24sp"
+            android:onClick="submitOrder"
+            android:id="@+id/proc"/>
+
+        <TextView
+            android:id="@+id/ordersummary_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+        <TextView
+            android:background="@color/colorAccent"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/index"/>
+        <TextView
+            android:background="@color/colorAccent"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/index1"/>
+        <TextView
+            android:id="@+id/price_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+</ScrollView>

@@ -32,10 +32,20 @@
         android:textColor="@android:color/background_dark"
         />
     <Button
+        android:id="@+id/third_activity_button"
+        android:layout_width="1200dp"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="530dp"
+        android:text="Want to put up your space for parking ?"
+        android:textStyle="bold"
+        android:textColor="@android:color/background_dark"
+        android:textSize="14sp" />
+
+    <Button
         android:id="@+id/second_activity_button"
         android:layout_width="1200dp"
         android:layout_height="65dp"
-        android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="590dp"
         android:text="Subscription Booking"
