@@ -1,0 +1,313 @@
+#define trigPinb 40
+#define echoPinb 38
+
+#define trigPinb1 44
+#define echoPinb1 42
+
+#define trigPinh 48
+#define echoPinh 46
+
+#define trigPins 52
+#define echoPins 50
+
+
+#define ledb 4
+#define ledb1 5
+#define ledh 6
+#define leds 7
+
+#include <Servo.h>
+#include <LiquidCrystal.h>
+Servo servo;
+Servo myservo;
+int angle = 0,n=1;
+int pos = 0;
+int type=0,flag1=0,flag2=0,flag3=0,i,slot;
+void sonar();
+int a[2],b[2],c[2];
+void loopmotor2();
+void loopb();
+void loopb1();
+void looph();
+void loops();
+long durationb, distanceb;
+  long durationb1, distanceb1;
+const int rs = 53, en = 51, d4 = 47, d5 = 45, d6 = 43, d7 = 41;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+#define trigPin2 22
+#define echoPin2 23 
+//#define led 27
+#define trigPin1 13
+
+#define echoPin1 12
+
+#define led 11
+
+void setup()
+
+{ Serial.begin (9600);
+
+pinMode(trigPin1, OUTPUT);
+
+pinMode(echoPin1, INPUT);
+
+pinMode(led, OUTPUT);
+
+
+pinMode(trigPin2, OUTPUT); 
+pinMode(echoPin2, INPUT); 
+pinMode(led, OUTPUT); 
+myservo.attach(9);
+servo.attach(29);
+  servo.write(angle);
+
+  lcd.begin(16,2);
+  lcd.print("Welcome");
+
+  pinMode(trigPinb, OUTPUT);
+  pinMode(echoPinb, INPUT);
+  pinMode(ledb, OUTPUT);
+
+  pinMode(trigPinb1, OUTPUT);
+  pinMode(echoPinb1, INPUT);
+  pinMode(ledb1, OUTPUT);
+
+  pinMode(trigPinh, OUTPUT);
+  pinMode(echoPinh, INPUT);
+  pinMode(ledh, OUTPUT);
+
+  pinMode(trigPins, OUTPUT);
+  pinMode(echoPins, INPUT);
+  pinMode(leds, OUTPUT);
+
+}
+
+void loop()
+
+{ long duration1, distance1;
+
+digitalWrite(trigPin1, LOW);
+
+delayMicroseconds(2);
+
+digitalWrite(trigPin1, HIGH);
+
+delayMicroseconds(10);
+
+digitalWrite(trigPin1, LOW);
+
+duration1 = pulseIn(echoPin1, HIGH);
+
+distance1 = (duration1/2) / 29.1;
+
+if (distance1 < 10)
+
+{ digitalWrite(led,HIGH);
+abc();
+
+}
+
+else {
+
+digitalWrite(led,LOW);
+
+
+}
+
+Serial.print(distance1);
+
+Serial.println(" cm");
+
+delay(500);
+
+}
+
+void abc() 
+{  while(n>0)
+  {
+   delay(1000);
+
+  for(angle = 0; angle < 60; angle++)  
+  {                                  
+    servo.write(angle);               
+    delay(15);                   
+  } 
+  sonar();
+  delay(500);
+  
+  for(angle = 60; angle < 120; angle++)    
+  {                                
+    servo.write(angle);           
+    delay(15);       
+  } 
+  sonar();
+  delay(500);
+  for(angle = 120; angle < 180; angle++)    
+  {                                
+    servo.write(angle);           
+    delay(15);       
+  } 
+  sonar();
+  digitalWrite(led,LOW);
+  delay(500); 
+  //Serial.println(type);
+  if(type==1)
+  {
+  Serial.println("Two-Wheeler");
+  a[flag1]=1;
+  flag1++;
+  
+  lcd.setCursor(1,2);
+  lcd.print("SlotA ");
+  loopb();
+  loopb1();
+  loopmotor2();
+  delay(1000);
+  
+  }
+
+
+  
+  n--;
+  type=0;
+  }
+  n++;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  void sonar()
+{
+long duration2, distance2; 
+digitalWrite(trigPin2, LOW); 
+delayMicroseconds(2); 
+digitalWrite(trigPin2, HIGH); 
+delayMicroseconds(10); 
+digitalWrite(trigPin2, LOW); 
+duration2 = pulseIn(echoPin2, HIGH); 
+distance2 = ((duration2)/2) / 29.1; 
+if (distance2 < 10) 
+{ digitalWrite(led,HIGH); 
+  type++;
+}
+else { 
+digitalWrite(led,LOW);
+}
+Serial.print("Measured distance from sensor:"); 
+Serial.print(distance2); 
+Serial.println(" cm"); 
+delay(500); 
+//printf(type);
+//digitalWrite(led,LOW);  //check vacancy, allot, display, motor2 call.
+}
+void out() {
+  lcd.noDisplay();
+  delay(500);
+  lcd.display();
+  delay(50);
+}
+
+
+void loopmotor2() {
+  for (pos = 0; pos <= 90; pos += 1) { 
+    myservo.write(pos);             
+    delay(15);                       
+  }
+  delay(2000);
+  for (pos = 90; pos >= 0; pos -= 1) { 
+    myservo.write(pos);              
+    delay(15);                       
+  }
+}
+
+void loopb()
+
+{ 
+
+digitalWrite(trigPinb, LOW);
+
+delayMicroseconds(2);
+
+digitalWrite(trigPinb, HIGH);
+
+delayMicroseconds(10);
+
+digitalWrite(trigPinb, LOW);
+
+durationb = pulseIn(echoPinb, HIGH);
+
+distanceb = (durationb/2) / 29.1;
+
+if (distanceb < 10)
+
+{ digitalWrite(ledb,HIGH);
+  a[0]=1;
+  lcd.setCursor(7,2);
+  lcd.print("1");
+  }
+
+else  {
+digitalWrite(ledb,LOW);
+a[0]=0;
+}
+
+Serial.print(distanceb);
+
+Serial.println(" cm");
+
+delay(500);
+
+}
+
+void loopb1()
+
+{ 
+
+digitalWrite(trigPinb1, LOW);
+
+delayMicroseconds(2);
+
+digitalWrite(trigPinb1, HIGH);
+
+delayMicroseconds(10);
+
+digitalWrite(trigPinb1, LOW);
+
+durationb1 = pulseIn(echoPinb1, HIGH);
+
+distanceb1 = (durationb1/2) / 29.1;
+
+if (distanceb1 < 10)
+
+{ digitalWrite(ledb1,HIGH);
+
+}
+
+else if(distanceb1>10) {
+
+digitalWrite(ledb1,LOW);
+a[flag1]=0;
+flag1--;
+}
+
+Serial.print(distanceb1);
+
+Serial.println(" cm");
+
+delay(500);
+
+}
+
+
